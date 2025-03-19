@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Pegawai</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1 class="title">Data Pegawai</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Nama Pegawai</th>
+        <th>Umur</th>
+        <th>Jabatan</th>
+        <th>Status</th>
+        <th>Gaji Pokok</th>
+        <th>Tunjangan Jabatan</th>
+        <th>BPJS</th>
+        <th>Tunjangan Keluarga</th>
+        <th>Total Gaji</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr id="data-row"></tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="8">Total Keseluruhan</td>
+        <td id="total"></td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <script>
+    const pegawai = {
+      nama: "Dodi Prayodi",
+      umur: 25,
+      jabatan: "Manajer",
+      status: "Menikah"
+    };
+
+    const gajiPokok = pegawai.jabatan === 'Manajer' ? 15000000 : pegawai.jabatan === 'Asisten Manajer' ? 10000000 : 5000000;
+    const tunjanganJabatan = 0.15 * gajiPokok;
+    const bpjs = 0.10 * gajiPokok;
+    const tunjanganKeluarga = pegawai.status === 'Menikah' ? 0.20 * gajiPokok : 0;
+    const totalGaji = gajiPokok + tunjanganJabatan + bpjs + tunjanganKeluarga;
+
+    const row = document.getElementById("data-row");
+    row.innerHTML = `
+      <td>${pegawai.nama}</td>
+      <td>${pegawai.umur}</td>
+      <td>${pegawai.jabatan}</td>
+      <td>${pegawai.status}</td>
+      <td>Rp ${gajiPokok.toLocaleString()}</td>
+      <td>Rp ${tunjanganJabatan.toLocaleString()}</td>
+      <td>Rp ${bpjs.toLocaleString()}</td>
+      <td>Rp ${tunjanganKeluarga.toLocaleString()}</td>
+      <td>Rp ${totalGaji.toLocaleString()}</td>
+    `;
+
+    document.getElementById("total").textContent = `Rp ${totalGaji.toLocaleString()}`;
+  </script>
+
+</body>
+</html>
