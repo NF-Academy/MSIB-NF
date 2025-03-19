@@ -36,3 +36,5 @@ function tampilkanProduk() {
 tambahProduk("Headset", 500000, 8);
 hapusProduk(2);
 tampilkanProduk();
+
+console.log("")
