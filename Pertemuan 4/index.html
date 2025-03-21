@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Manajemen Transportasi</title>
+</head>
+<body>
+    <h1>Manajemen Penyewaan Transportasi</h1>
+</body>
+<script>
+    class Pelanggan {
+        constructor(nama, nomorTelepon, kendaraanDisewa) {
+            this.nama = nama;
+            this.nomorTelepon = nomorTelepon;
+            this.kendaraanDisewa = kendaraanDisewa;
+        }
+    }
+
+    class ManajemenSewa {
+        constructor() {
+            this.pelangganList = [];
+        }
+
+        tambahPelanggan(pelanggan) {
+            this.pelangganList.push(pelanggan);
+            this.tampilkanPelanggan();
+        }
+
+        tampilkanPelanggan() {
+            console.clear();
+            console.log("Daftar Pelanggan yang Sedang Menyewa:");
+            this.pelangganList.forEach((p, index) => {
+                console.log(`${index + 1}. Nama: ${p.nama}, Nomor Telepon: ${p.nomorTelepon}, Kendaraan Disewa: ${p.kendaraanDisewa}`);
+            });
+        }
+    }
+
+    const manajemenSewa = new ManajemenSewa();
+    
+    function sewaKendaraan(nama, nomorTelepon, kendaraan) {
+        const pelangganBaru = new Pelanggan(nama, nomorTelepon, kendaraan);
+        manajemenSewa.tambahPelanggan(pelangganBaru);
+    }
+
+    // Contoh penggunaan manual:
+    sewaKendaraan("Bowo", "08123456789", "Kereta Api");
+    sewaKendaraan("Sari", "08987654321", "Becak");
+</script>
+</html>
