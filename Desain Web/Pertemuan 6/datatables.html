@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Data Table</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <h2 class="text-center">Data Table</h2>
+        <table id="example" class="table table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nama</th>
+                    <th>Umur</th>
+                    <th>Kota</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Bagas</td>
+                    <td>25</td>
+                    <td>Nganjuk</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>WInna</td>
+                    <td>30</td>
+                    <td>Madura</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Bowo</td>
+                    <td>28</td>
+                    <td>Malang</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Nabela</td>
+                    <td>28</td>
+                    <td>Surabaya</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Pindhu</td>
+                    <td>28</td>
+                    <td>Kediri</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Sari</td>
+                    <td>28</td>
+                    <td>Afrika</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable();
+        });
+    </script>
+</body>
+</html>

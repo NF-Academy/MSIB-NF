@@ -1,0 +1,30 @@
+
+
+.nav {
+    grid-column: 1 / 4;
+    background-color: #8BC34A;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav ul li {
+    display: inline;
+}
+
+.nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    background-color: #388E3C;
+    border-radius: 5px;
+}
+

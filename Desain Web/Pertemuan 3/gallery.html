@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #74ebd5, #acb6e5);
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+        h2 {
+            color: #fff;
+            font-size: 2em;
+        }
+        .gallery-container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .marquee {
+            display: flex;
+            gap: 20px;
+            overflow: hidden;
+            white-space: nowrap;
+            animation: marquee 10s linear infinite;
+        }
+        .marquee img {
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: 150px;
+            height: 100px;
+            object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .marquee img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        @keyframes marquee {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h2>Gallery</h2>
+    <div class="gallery-container">
+        <div class="marquee">
+            <img src="https://st3.depositphotos.com/5295026/16266/i/450/depositphotos_162666166-stock-photo-business-man-pushing-large-stone.jpg" width="150">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbUJOyQ4xhGiLMROgz9ABpw2NZB5bCNJewew&s" width="150">
+            <img src="https://images.pexels.com/photos/3688501/pexels-photo-3688501.jpeg" width="150">
+        </div>
+    </div>
+</body>
+</html>

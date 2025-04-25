@@ -1,0 +1,99 @@
+/* Reset dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #f0f2f5;
+    padding: 10px;
+}
+
+/* Grid container */
+.container {
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-areas: 
+        "header header header"
+        "nav nav nav"
+        "content-left main content-right"
+        "footer footer footer";
+    min-height: 100vh;
+    text-align: center;
+    gap: 10px;
+}
+
+/* Header, Navigation, Footer */
+header, nav, footer {
+    background: linear-gradient(135deg, #4CAF50, #2E7D32);
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+}
+
+header {
+    grid-area: header;
+    font-size: 24px;
+}
+
+nav {
+    grid-area: nav;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+footer {
+    grid-area: footer;
+    font-size: 18px;
+}
+
+/* Sidebar Content */
+.content-left, .content-right {
+    background: linear-gradient(135deg,  #4CAF50, #2E7D32);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.content-left {
+    grid-area: content-left;
+    font-size: 18px;
+}
+
+.content-right {
+    grid-area: content-right;
+    font-size: 18px;
+}
+
+.content-left:hover, .content-right:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Main Content */
+main {
+    grid-area: main;
+    background: linear-gradient(135deg, #1da71f, #66ff87);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+main:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
