@@ -6,16 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Author extends Model
 {
-    use HasFactory;
+    protected $fillable = ['name'];
 
-    public static function getAuthors()
+    public function books()
     {
-        return [
-            ['id' => 1, 'name' => 'J.K. Rowling'],
-            ['id' => 2, 'name' => 'George Orwell'],
-            ['id' => 3, 'name' => 'J.R.R. Tolkien'],
-            ['id' => 4, 'name' => 'Isaac Asimov'],
-            ['id' => 5, 'name' => 'Agatha Christie']
-        ];
+        return $this->hasMany(Book::class);
     }
 }
