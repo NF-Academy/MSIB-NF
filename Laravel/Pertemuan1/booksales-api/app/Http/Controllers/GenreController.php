@@ -1,4 +1,5 @@
 <?php 
+
 namespace App\Http\Controllers;
 
 use App\Models\Genre;
@@ -20,12 +21,10 @@ class GenreController extends Controller
     // Create new genre
     public function store(Request $request)
     {
-        // Validasi input
         $request->validate([
             'name' => 'required|string|max:255'
         ]);
 
-        // Simpan data
         $genre = Genre::create([
             'name' => $request->name
         ]);
@@ -34,5 +33,69 @@ class GenreController extends Controller
             'status' => 'success',
             'data' => $genre
         ], 201);
+    }
+
+    // Show specific genre
+    public function show($id)
+    {
+        $genre = Genre::find($id);
+
+        if (!$genre) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Genre not found'
+            ], 404);
+        }
+
+        return response()->json([
+            'status' => 'success',
+            'data' => $genre
+        ]);
+    }
+
+    // Update specific genre
+    public function update(Request $request, $id)
+    {
+        $genre = Genre::find($id);
+
+        if (!$genre) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Genre not found'
+            ], 404);
+        }
+
+        $request->validate([
+            'name' => 'required|string|max:255'
+        ]);
+
+        $genre->update([
+            'name' => $request->name
+        ]);
+
+        return response()->json([
+            'status' => 'success',
+            'data' => $genre
+        ]);
+    }
+
+    // Delete specific genre
+    public function destroy($id)
+    {
+        $genre = Genre::find($id);
+
+        if (!$genre) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Genre not found'
+            ], 404);
+        }
+
+        $genre->delete();
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Genre deleted successfully'
+        ]);
     }
 }

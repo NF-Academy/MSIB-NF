@@ -6,12 +6,10 @@ use App\Http\Controllers\GenreController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('api')->group(function () {
-    // Read all
+    // Route untuk book (hanya index, karena tidak pakai resource)
     Route::get('/books', [BookController::class, 'index']);
-    Route::get('/authors', [AuthorController::class, 'index']);
-    Route::get('/genres', [GenreController::class, 'index']);
 
-    // Create
-    Route::post('/authors', [AuthorController::class, 'store']);
-    Route::post('/genres', [GenreController::class, 'store']);
+    // Route resource lengkap untuk authors dan genres
+    Route::apiResource('authors', AuthorController::class);
+    Route::apiResource('genres', GenreController::class);
 });
