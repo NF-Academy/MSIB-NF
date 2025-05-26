@@ -10,7 +10,7 @@ class AuthorController extends Controller
     // Read all authors
     public function index()
     {
-        $authors = Author::all();
+        $authors = Author::paginate(10); // 10 data per halaman
         return response()->json([
             'status' => 'success',
             'data' => $authors
