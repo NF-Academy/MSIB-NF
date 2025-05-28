@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('role')->default('customer')->after('password'); 
-            // Default role 'customer', kamu bisa sesuaikan
+            $table->string('role')->default('customer')->after('password');
+            // Default 'customer', kamu bisa ubah sesuai kebutuhan
         });
     }
 

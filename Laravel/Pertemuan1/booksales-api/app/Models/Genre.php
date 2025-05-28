@@ -8,14 +8,10 @@ class Genre extends Model
 {
     use HasFactory;
 
-    public static function getGenres()
+    protected $fillable = ['name'];
+
+    public function books()
     {
-        return [
-            ['id' => 1, 'name' => 'Fiction'],
-            ['id' => 2, 'name' => 'Non-Fiction'],
-            ['id' => 3, 'name' => 'Fantasy'],
-            ['id' => 4, 'name' => 'Biography'],
-            ['id' => 5, 'name' => 'Mystery']
-        ];
+        return $this->hasMany(Book::class);
     }
 }

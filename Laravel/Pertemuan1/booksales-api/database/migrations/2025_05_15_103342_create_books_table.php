@@ -9,18 +9,25 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up()
-{
-    Schema::create('books', function (Blueprint $table) {
-        $table->id();
-        $table->string('title');
-        $table->unsignedBigInteger('author_id');
-        $table->timestamps();
+    public function up(): void
+    {
+        Schema::create('books', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            
+            // Foreign key ke tabel authors
+            $table->foreignId('author_id')
+                ->constrained('authors') // bisa juga tanpa parameter jika nama tabel sesuai
+                ->onDelete('cascade');
 
-        $table->foreign('author_id')->references('id')->on('authors')->onDelete('cascade');
-    });
-}
+            // Foreign key ke tabel genres
+            $table->foreignId('genre_id')
+                ->constrained('genres')
+                ->onDelete('cascade');
 
+            $table->timestamps();
+        });
+    }
 
     /**
      * Reverse the migrations.
